@@ -258,6 +258,8 @@ void git_xdiff_init(git_xdiff_output *xo, const git_diff_options *opts)
 		xo->params.flags |= XDF_PATIENCE_DIFF;
 	if (flags & GIT_DIFF_MINIMAL)
 		xo->params.flags |= XDF_NEED_MINIMAL;
+    if (flags & GIT_DIFF_IGNORE_BLANK_LINES)
+	    xo->params.flags |= XDF_IGNORE_BLANK_LINES;
 
 	xo->callback.outf = git_xdiff_cb;
 }
